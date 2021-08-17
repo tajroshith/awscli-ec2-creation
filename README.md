@@ -33,6 +33,7 @@
 ```sh
 aws ec2 create-security-group --group-name cli-securitygroup --description "22,80,443-Open"
 ```
+
 Group ID is shows as output, we need the group id inorder to create our instance.
 
 ```sh
@@ -44,21 +45,17 @@ Group ID is shows as output, we need the group id inorder to create our instance
 ```
 Inorder to access our EC2 instance via SSH we are opening port 22 and also ports 80 & 443 as we need to access the webserver.
 
+
 ```sh
 aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 22 --cidr 0.0.0.0/0
 ```
 
-
 ```sh
-
 aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 80 --cidr 0.0.0.0/0
-
 ```
 
 ```sh
-
 aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 443 --cidr 0.0.0.0/0
-
 ```
 
 ## Key-Pair
@@ -66,9 +63,7 @@ aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protoc
 The proceeding line creates a 2048-bit RSA key pair. The aws ec2 command stores the public key and outputs the private key to save to a file.
 
 ```sh
-
 aws ec2 create-key-pair --key-name cli-keypair --query "KeyMaterial" --output text > clikeypair-key.pem
-
 ```
 
 ## AMI (Amazon Machine Image)

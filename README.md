@@ -46,13 +46,11 @@ Inorder to access our EC2 instance via SSH we are opening port 22 and also ports
 aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 22 --cidr 0.0.0.0/0
 
 ```
-
 ```sh
 
 aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 80 --cidr 0.0.0.0/0
 
 ```
-
 ```sh
 
 aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 443 --cidr 0.0.0.0/0

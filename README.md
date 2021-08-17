@@ -44,9 +44,11 @@ Inorder to access our EC2 instance via SSH we are opening port 22 and also ports
 ```sh
 aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 22 --cidr 0.0.0.0/0
 ```
+
 ```sh
 aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 80 --cidr 0.0.0.0/0
 ```
+
 ```sh
 aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 443 --cidr 0.0.0.0/0
 ```
@@ -65,6 +67,7 @@ When creating a EC2 instance from the command line, we specify the operating sys
 ```sh
 aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-hvm-2.0.????????-x86_64-gp2" "Name=state,Values=available" --output json
 ```
+
 From the output we get the AMI ID
 ```sh
  {

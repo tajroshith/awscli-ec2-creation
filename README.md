@@ -73,7 +73,8 @@ aws ec2 create-key-pair --key-name cli-keypair --query "KeyMaterial" --output te
 When creating a EC2 instance from the command line, we specify the operating system using the amazon machine image (AMI) ID. To get the image ID we use the following command.
 
 ```sh
-aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-hvm-2.0.????????-x86_64-gp2" 
+aws ec2 describe-images --owners amazon --filters 
+"Name=name,Values=amzn2-ami-hvm-2.0.????????-x86_64-gp2" 
 "Name=state,Values=available" --output json
 
 ```

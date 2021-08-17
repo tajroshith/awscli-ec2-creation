@@ -65,7 +65,8 @@ aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protoc
 The proceeding line creates a 2048-bit RSA key pair. The aws ec2 command stores the public key and outputs the private key to save to a file.
 
 ```sh
-aws ec2 create-key-pair --key-name cli-keypair --query "KeyMaterial" --output text > clikeypair-key.pem
+aws ec2 create-key-pair --key-name cli-keypair --query "KeyMaterial" 
+--output text > clikeypair-key.pem
 ```
 
 ## AMI (Amazon Machine Image)

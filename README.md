@@ -74,7 +74,8 @@ When creating a EC2 instance from the command line, we specify the operating sys
 
 ```sh
 
-aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-hvm-2.0.????????-x86_64-gp2" "Name=state,Values=available" --output json
+aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-hvm-2.0.????????-x86_64-gp2" 
+"Name=state,Values=available" --output json
 
 ```
 
@@ -100,7 +101,8 @@ From the output we get the AMI ID
 We provide the AMI ID, Security group id and the keypair name.
 ```sh
 
-aws ec2 run-instances --image-id ami-0d2692b6acea72ee6 --security-group-ids sg-0fd9098f110fa4e13 --instance-type t2.micro --key-name cli-keypair
+aws ec2 run-instances --image-id ami-0d2692b6acea72ee6 --security-group-ids sg-0fd9098f110fa4e13 
+--instance-type t2.micro --key-name cli-keypair
 
 ```
 

@@ -73,7 +73,6 @@ aws ec2 create-key-pair --key-name cli-keypair --query "KeyMaterial" --output te
 When creating a EC2 instance from the command line, we specify the operating system using the amazon machine image (AMI) ID. To get the image ID we use the following command.
 
 ```sh
-
 aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-hvm-2.0.????????-x86_64-gp2" 
 "Name=state,Values=available" --output json
 
@@ -125,7 +124,8 @@ aws ec2 create-volume --size 2 --availability-zone ap-south-1b
 We get the volume id when creating the additional volume.For attaching our volume we provide the following line
 ```sh
 
-aws ec2 attach-volume --volume-id vol-0d264f40bf5f33044 --instance-id -0e51d766d76c82eab --device /dev/sdf
+aws ec2 attach-volume --volume-id vol-0d264f40bf5f33044 --instance-id -0e51d766d76c82eab 
+--device /dev/sdf
 
 ```
 
@@ -133,7 +133,8 @@ In order to SSH to our EC2 Instance we need to get the Public IP, we can provide
 
 ```sh
 
-aws ec2 describe-instances --instance-ids i-0e51d766d76c82eab --query "Reservations[0].Instances[0].PublicIpAddress"
+aws ec2 describe-instances --instance-ids i-0e51d766d76c82eab 
+--query "Reservations[0].Instances[0].PublicIpAddress"
 
 ```
 

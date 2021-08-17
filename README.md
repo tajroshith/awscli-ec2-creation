@@ -46,19 +46,18 @@ Group ID is shows as output, we need the group id inorder to create our instance
 Inorder to access our EC2 instance via SSH we are opening port 22 and also ports 80 & 443 as we need to access the webserver.
 
 ```sh
-aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 22 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp 
+--port 22 --cidr 0.0.0.0/0
 ```
 
-
-
 ```sh
-aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 80 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp 
+--port 80 --cidr 0.0.0.0/0
 ```
 
-
-
 ```sh
-aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp --port 443 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-name cli-securitygroup --protocol tcp 
+--port 443 --cidr 0.0.0.0/0
 ```
 
 ## Key-Pair

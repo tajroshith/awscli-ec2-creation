@@ -34,6 +34,7 @@ AWS Secret Access Key [None]: Provide AWS Secret Access Key
 Default region name [None]: Provide region name
 Default output format [None]: Provide output format
 ```
+We configured the AWS-CLI user with the access and secrey key.
 
 ## Creating Security Group
 

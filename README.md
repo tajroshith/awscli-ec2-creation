@@ -372,7 +372,8 @@ We provide the AMI ID, Security group id, Subnet id and the keypair name.
 
 ```sh
 
-aws ec2 run-instances --image-id ami-0ed72083dbed1d548 --count 1 --instance-type t2.micro --key-name cli-web-keypair 
+aws ec2 run-instances --image-id ami-0ed72083dbed1d548 --count 1 --instance-type t2.micro 
+--key-name cli-web-keypair 
 --security-group-ids sg-08e4bfd92f793c6a5 --subnet-id subnet-00c0a8f7de82f11a8
 
 ```
@@ -425,7 +426,8 @@ We get the volume id when creating the additional volume. For attaching our volu
 
 ```sh
 
-aws ec2 attach-volume --volume-id vol-027b77beb837467a8 --instance-id i-049e0957acea10d47 --device /dev/sdf
+aws ec2 attach-volume --volume-id vol-027b77beb837467a8 
+--instance-id i-049e0957acea10d47 --device /dev/sdf
 
 ```
 Output

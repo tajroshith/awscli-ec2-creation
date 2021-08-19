@@ -2,7 +2,7 @@
 
 This is a project i did for a client, the requirement was to build an infrastucture for a webserver with no access to the AWS console. 
 Further requirement was to create and attach an additional volume to the ec2 instance. An IAM user with programmatic access was also provided.
-Below is a detailed steps that i have performed to complete the project.
+Below is a detailed summary of  steps that i have performed to complete the project.
 
 
 ## Pre-requisites for this project

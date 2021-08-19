@@ -166,7 +166,8 @@ Output
 Now pointing our route table to our internet gateway to route all traffic.
 
 ```sh
-aws ec2 create-route --route-table-id rtb-0e17ff7cacbe06aac --destination-cidr-block 0.0.0.0/0 --gateway-id igw-0264fa7f3b74797b8
+aws ec2 create-route --route-table-id rtb-0e17ff7cacbe06aac --destination-cidr-block 0.0.0.0/0 
+--gateway-id igw-0264fa7f3b74797b8
 
 ```
 
@@ -224,7 +225,8 @@ Output
 We now associate the created subnets with our route table which in turn is now connected to the internet gateway. First we use the following command to identify our subnets.
 
 ```sh
-aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-0f8eb530f20a64a39" --query "Subnets[*].{ID:SubnetId,CIDR:CidrBlock}"
+aws ec2 describe-subnets --filters "Name=vpc-id,Values=vpc-0f8eb530f20a64a39" 
+--query "Subnets[*].{ID:SubnetId,CIDR:CidrBlock}"
 
 ```
 
@@ -275,7 +277,8 @@ Now our basic infrastructure is completed and we move onto creation of EC2.
 We create the security group in our VPC and tag it for proper identification.
 
 ```sh
-aws ec2 create-security-group --group-name web-sg --description "Security group for webserver" --vpc-id vpc-0f8eb530f20a64a39
+aws ec2 create-security-group --group-name web-sg --description "Security group for webserver" 
+--vpc-id vpc-0f8eb530f20a64a39
 
 ```
 
@@ -320,7 +323,8 @@ aws ec2 create-key-pair --key-name cli-web-keypair --query "KeyMaterial" --outpu
 When creating a EC2 instance from the command line, we specify the operating system using the amazon machine image (AMI) ID. To get the image ID we use the following command which lists the latest AMI Image Id.
 
 ```sh
-aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-hvm-2.0.????????-x86_64-gp2" "Name=state,Values=available" --output json
+aws ec2 describe-images --owners amazon --filters "Name=name,Values=amzn2-ami-hvm-2.0.????????-x86_64-gp2" 
+"Name=state,Values=available" --output json
 
 ```
 
@@ -352,7 +356,8 @@ We provide the AMI ID, Security group id, Subnet id and the keypair name.
 
 ```sh
 
-aws ec2 run-instances --image-id ami-0ed72083dbed1d548 --count 1 --instance-type t2.micro --key-name cli-web-keypair --security-group-ids sg-08e4bfd92f793c6a5 --subnet-id subnet-00c0a8f7de82f11a8
+aws ec2 run-instances --image-id ami-0ed72083dbed1d548 --count 1 --instance-type t2.micro --key-name cli-web-keypair 
+--security-group-ids sg-08e4bfd92f793c6a5 --subnet-id subnet-00c0a8f7de82f11a8
 
 ```
 

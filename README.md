@@ -1,11 +1,11 @@
-## EC2 Creation From AWS-CLI
+## EC2 - Configuration & Deployment Using AWS-CLI
 
 This is a project i did for a client, the requirement was to build an infrastucture for a webserver with no access to the AWS console. 
 Further requirement was to create and attach an additional volume to the ec2 instance. An IAM user with programmatic access was also provided.
 Below is a detailed steps that i have performed to complete the project.
 
 
-## Prerequisites for this project
+## Pre-requisites for this project
 
 - Needs AWS CLI access preferrably a user with admin access
 - AWS CLI needs to be installed on your system

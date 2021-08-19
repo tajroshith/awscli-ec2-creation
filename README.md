@@ -127,7 +127,8 @@ aws ec2 create-tags --resources igw-0264fa7f3b74797b8 --tags Key=Name,Value=igw-
 Now we need to attach the internet gateway to our VPC
 
 ```sh
-aws ec2 attach-internet-gateway --internet-gateway-id igw-0264fa7f3b74797b8 --vpc-id vpc-0f8eb530f20a64a39
+aws ec2 attach-internet-gateway --internet-gateway-id igw-0264fa7f3b74797b8 
+--vpc-id vpc-0f8eb530f20a64a39
 
 ```
 
@@ -254,9 +255,14 @@ Associating subnets with our route table
 
 ```sh
 
-aws ec2 associate-route-table  --subnet-id subnet-00c0a8f7de82f11a8 --route-table-id rtb-0e17ff7cacbe06aac
-aws ec2 associate-route-table  --subnet-id subnet-0e84cc4af28cca9ef --route-table-id rtb-0e17ff7cacbe06aac
-aws ec2 associate-route-table  --subnet-id subnet-0032eb27a14442a1e --route-table-id rtb-0e17ff7cacbe06aac
+aws ec2 associate-route-table  --subnet-id subnet-00c0a8f7de82f11a8 
+--route-table-id rtb-0e17ff7cacbe06aac
+
+aws ec2 associate-route-table  --subnet-id subnet-0e84cc4af28cca9ef 
+--route-table-id rtb-0e17ff7cacbe06aac
+
+aws ec2 associate-route-table  --subnet-id subnet-0032eb27a14442a1e 
+--route-table-id rtb-0e17ff7cacbe06aac
 
 ```
 
@@ -264,9 +270,15 @@ Instances launched using these subnets require public-IP so we modify the subnet
 
 ```sh
 
-aws ec2 modify-subnet-attribute --subnet-id subnet-00c0a8f7de82f11a8 --map-public-ip-on-launch
-aws ec2 modify-subnet-attribute --subnet-id subnet-0e84cc4af28cca9ef --map-public-ip-on-launch
-aws ec2 modify-subnet-attribute --subnet-id subnet-0032eb27a14442a1e --map-public-ip-on-launch
+aws ec2 modify-subnet-attribute --subnet-id subnet-00c0a8f7de82f11a8 
+--map-public-ip-on-launch
+
+aws ec2 modify-subnet-attribute --subnet-id subnet-0e84cc4af28cca9ef 
+--map-public-ip-on-launch
+
+aws ec2 modify-subnet-attribute --subnet-id subnet-0032eb27a14442a1e 
+--map-public-ip-on-launch
+
 
 ```
 
@@ -301,11 +313,14 @@ Output
 Inorder to access our EC2 instance via SSH we are opening port 22 and also ports 80 & 443 as we need to access the webserver.
 
 ```sh
-aws ec2 authorize-security-group-ingress --group-id sg-08e4bfd92f793c6a5 --protocol tcp --port 22 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id sg-08e4bfd92f793c6a5 --protocol tcp 
+--port 22 --cidr 0.0.0.0/0
 
-aws ec2 authorize-security-group-ingress --group-id sg-08e4bfd92f793c6a5 --protocol tcp --port 80 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id sg-08e4bfd92f793c6a5 --protocol tcp 
+--port 80 --cidr 0.0.0.0/0
 
-aws ec2 authorize-security-group-ingress --group-id sg-08e4bfd92f793c6a5 --protocol tcp --port 443 --cidr 0.0.0.0/0
+aws ec2 authorize-security-group-ingress --group-id sg-08e4bfd92f793c6a5 --protocol tcp 
+--port 443 --cidr 0.0.0.0/0
 
 ```
 
@@ -314,7 +329,8 @@ aws ec2 authorize-security-group-ingress --group-id sg-08e4bfd92f793c6a5 --proto
 The proceeding line creates a 2048-bit RSA key pair. The aws ec2 command stores the public key and outputs the private key to save to a file.
 
 ```sh
-aws ec2 create-key-pair --key-name cli-web-keypair --query "KeyMaterial" --output text > cli-web-keypair-key.pem
+aws ec2 create-key-pair --key-name cli-web-keypair --query "KeyMaterial" 
+--output text > cli-web-keypair-key.pem
 
 ```
 
@@ -430,7 +446,8 @@ In order to SSH to our EC2 Instance we need to get the Public IP, we can provide
 
 ```sh
 
-aws ec2 describe-instances --instance-ids i-049e0957acea10d47 --query 'Reservations[0].Instances[0].PublicIpAddress'
+aws ec2 describe-instances --instance-ids i-049e0957acea10d47 
+--query 'Reservations[0].Instances[0].PublicIpAddress'
 
 ```
 

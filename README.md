@@ -21,14 +21,14 @@ List of AWS resources created via AWS-CLI
 - Key-Pair
 - Additional Volume
 
-## Configure the AWS CLI User
+## Configuring the AWS CLI User
 
 ```sh
-#aws configure
-# Provide AWS Access Key ID
-# Provide AWS Secret Access Key
-# Provide Default region name
-# Provide Default output format
+#aws configure --profile=taj-awscli
+# AWS Access Key ID [None]: Provide AWS Access Key ID
+# AWS Secret Access Key [None]: Provide AWS Secret Access Key
+# Default region name [None]: Provide region name
+# Default output format [None]: Provide output format
 ```
 
 ## Creating Security Group

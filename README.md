@@ -12,6 +12,9 @@ Below is a detailed steps that i have performed to complete the project.
 - Knowledge of AWS CLI commands
 
 ## Resources
+
+List of AWS resources created via AWS-CLI
+
 - EC2
 - Security Group
 - AMI (Amazon Machine Image)

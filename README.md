@@ -490,13 +490,13 @@ echo "/dev/xvdf1      /var/www/html   xfs defaults   0       2" >> /etc/fstab
 ```
 Now we add the web files to the document root, apply necessary permissions and map the domain name to our public Ip.
 
-## For stopping our EC2 Instance
+## For Stopping our EC2 Instance
 
 ```sh
 aws ec2 stop-instances --instance-ids i-049e0957acea10d47
 ```
 
-## For terminating our EC2 Instance
+## For Terminating our EC2 Instance
 
 ```sh
 aws ec2 terminate-instances --instance-ids i-049e0957acea10d47
